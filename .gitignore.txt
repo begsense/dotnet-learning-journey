@@ -1,0 +1,7 @@
+## Visual Studio files to ignore
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.rsuser

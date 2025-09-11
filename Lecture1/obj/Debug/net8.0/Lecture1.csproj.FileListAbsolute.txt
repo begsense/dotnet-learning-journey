@@ -1,0 +1,14 @@
+D:\ITStepDotNet\Lecture1\bin\Debug\net8.0\Lecture1.exe
+D:\ITStepDotNet\Lecture1\bin\Debug\net8.0\Lecture1.deps.json
+D:\ITStepDotNet\Lecture1\bin\Debug\net8.0\Lecture1.runtimeconfig.json
+D:\ITStepDotNet\Lecture1\bin\Debug\net8.0\Lecture1.dll
+D:\ITStepDotNet\Lecture1\bin\Debug\net8.0\Lecture1.pdb
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.AssemblyInfoInputs.cache
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.AssemblyInfo.cs
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.csproj.CoreCompileInputs.cache
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.dll
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\refint\Lecture1.dll
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.pdb
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\Lecture1.genruntimeconfig.cache
+D:\ITStepDotNet\Lecture1\obj\Debug\net8.0\ref\Lecture1.dll

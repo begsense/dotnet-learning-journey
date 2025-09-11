@@ -1,0 +1,14 @@
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2 - Types.exe
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2 - Types.deps.json
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2 - Types.runtimeconfig.json
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2 - Types.dll
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2 - Types.pdb
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.AssemblyInfoInputs.cache
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.AssemblyInfo.cs
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.csproj.CoreCompileInputs.cache
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.dll
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\refint\Lecture2 - Types.dll
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.pdb
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2 - Types.genruntimeconfig.cache
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\ref\Lecture2 - Types.dll

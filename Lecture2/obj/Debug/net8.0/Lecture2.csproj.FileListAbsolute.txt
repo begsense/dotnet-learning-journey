@@ -1,0 +1,14 @@
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2.exe
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2.deps.json
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2.runtimeconfig.json
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2.dll
+D:\ITStepDotNet\Lecture2\bin\Debug\net8.0\Lecture2.pdb
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.AssemblyInfoInputs.cache
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.AssemblyInfo.cs
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.csproj.CoreCompileInputs.cache
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.dll
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\refint\Lecture2.dll
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.pdb
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\Lecture2.genruntimeconfig.cache
+D:\ITStepDotNet\Lecture2\obj\Debug\net8.0\ref\Lecture2.dll
