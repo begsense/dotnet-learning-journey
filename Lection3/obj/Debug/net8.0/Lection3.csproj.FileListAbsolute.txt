@@ -1,0 +1,15 @@
+D:\ITStepDotNet\Lection3\bin\Debug\net8.0\Lection3.exe
+D:\ITStepDotNet\Lection3\bin\Debug\net8.0\Lection3.deps.json
+D:\ITStepDotNet\Lection3\bin\Debug\net8.0\Lection3.runtimeconfig.json
+D:\ITStepDotNet\Lection3\bin\Debug\net8.0\Lection3.dll
+D:\ITStepDotNet\Lection3\bin\Debug\net8.0\Lection3.pdb
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.GeneratedMSBuildEditorConfig.editorconfig
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.AssemblyInfoInputs.cache
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.AssemblyInfo.cs
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.csproj.CoreCompileInputs.cache
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.sourcelink.json
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.dll
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\refint\Lection3.dll
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.pdb
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\Lection3.genruntimeconfig.cache
+D:\ITStepDotNet\Lection3\obj\Debug\net8.0\ref\Lection3.dll
