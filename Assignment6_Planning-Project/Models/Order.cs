@@ -1,4 +1,4 @@
-﻿namespace Assignment5_Planning_Project.Models;
+﻿namespace Assignment6_Planning_Project.Models;
 
 internal class Order
 {

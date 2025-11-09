@@ -1,4 +1,4 @@
-﻿namespace Assignment6_Encapsulation.Models;
+﻿namespace Assignment7_Encapsulation.Models;
 class Burger
 {
     private string _name;

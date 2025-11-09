@@ -1,4 +1,4 @@
-﻿using Assignment6_Encapsulation.Models;
+﻿using Assignment7_Encapsulation.Models;
 
 ColorWriteLine("Burger Shop!", ConsoleColor.DarkMagenta);
 

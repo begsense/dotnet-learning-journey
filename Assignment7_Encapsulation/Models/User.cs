@@ -1,4 +1,4 @@
-﻿namespace Assignment6_Encapsulation.Models;
+﻿namespace Assignment7_Encapsulation.Models;
 internal class User
 {
     private string _fullName;
