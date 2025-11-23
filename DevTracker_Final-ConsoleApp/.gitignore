@@ -1,0 +1,57 @@
+## Build results
+bin/
+obj/
+out/
+
+## Rider / VSCode / Visual Studio
+.vs/
+.idea/
+.vscode/
+
+## User-specific files
+*.user
+*.suo
+*.userprefs
+
+## Logs
+*.log
+
+## Environment variables / secrets
+*.env
+*.env.*
+secret.json
+*.secret.json
+appsettings.Development.json
+
+## Publish outputs
+publish/
+*.dll
+*.exe
+
+## Temporary files
+*.tmp
+*.temp
+*.cache
+*.db
+
+## OS files
+.DS_Store
+Thumbs.db
+
+## NuGet
+*.nupkg
+packages/
+.nuget/
+
+## dotnet tools
+.dotnet/
+tools/
+
+## Configs you don’t want on GitHub
+launchSettings.json
+appsettings.json
+Properties/launchSettings.json
+
+## JetBrains Rider files
+.idea/
+*.iml

@@ -1,0 +1,24 @@
+[
+  {
+    "Id": 1,
+    "Title": "Fix login bug",
+    "Description": "Users cannot log in when entering invalid password first time.",
+    "AssignedDeveloperID": 2,
+    "Priority": "High",
+    "Status": "InProgress",
+    "CreatedAt": "2025-11-23T10:30:00",
+    "StartedAt": "2025-11-23T11:00:00",
+    "CompletedAt": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": 2,
+    "Title": "Create task filtering feature",
+    "Description": "Manager should be able to filter tasks by status and priority.",
+    "AssignedDeveloperID": 3,
+    "Priority": "Medium",
+    "Status": "New",
+    "CreatedAt": "2025-11-23T12:45:00",
+    "StartedAt": "0001-01-01T00:00:00",
+    "CompletedAt": "0001-01-01T00:00:00"
+  }
+]
