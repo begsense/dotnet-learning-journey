@@ -7,8 +7,8 @@ namespace DevTracker_Final_ConsoleApp.Services;
 
 internal class EmailSender : IEmailSender
 {
-    private readonly string? email = Environment.GetEnvironmentVariable("DEVTRACKER_EMAIL");
-    private readonly string? emailPass = Environment.GetEnvironmentVariable("DEVTRACKER_EMAIL_PASS");
+    private readonly string email = Environment.GetEnvironmentVariable("DEVTRACKER_EMAIL");
+    private readonly string emailPass = Environment.GetEnvironmentVariable("DEVTRACKER_EMAIL_PASS");
 
     public void SendEmail(string to, string subject, string body)
     {
@@ -20,13 +20,15 @@ internal class EmailSender : IEmailSender
 
         MailMessage mailMessage = new MailMessage();
 
-        mailMessage.From = new MailAddress(email ?? "");
+        mailMessage.From = new MailAddress(email);
 
         mailMessage.To.Add(to);
 
         mailMessage.Subject = subject;
 
         mailMessage.Body = body;
+
+        mailMessage.IsBodyHtml = true;
 
         smtpClient.Send(mailMessage);
     }

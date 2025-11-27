@@ -1,9 +1,16 @@
 [
   {
     "Id": 1,
-    "UserName":  "test"
+    "UserName": "test",
     "Email": "test@gmail.com",
     "Password": "$2a$11$PzqWSd0t8oK...",
     "Role": "Manager"
+  },
+  {
+    "Id": 2,
+    "UserName": "begsense1",
+    "Email": "begsensenew@gmail.com",
+    "Password": "$2a$11$.npWX1FE3jTqtt5jci/SF.A.WTCL.mzX.Eu4MpaJArjKCY0Uy8A/u",
+    "Role": "Developer"
   }
 ]
