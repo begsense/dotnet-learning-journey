@@ -2,6 +2,7 @@
 using DevTracker_Final_ConsoleApp.Enums;
 using DevTracker_Final_ConsoleApp.Models;
 using DevTracker_Final_ConsoleApp.Helpers;
+using System;
 
 namespace DevTracker_Final_ConsoleApp.Menus;
 
@@ -12,76 +13,99 @@ internal class DeveloperMenu
 
     public void Start(User developer)
     {
+        visual.WriteColored($"Welcome {developer.UserName}", ConsoleColor.DarkGreen);
+        Console.WriteLine();
+
         while (true)
         {
-            visual.WriteColored("============Developer Menu==============", ConsoleColor.Cyan);
-            visual.WriteColored("1. Assigned Tasks", ConsoleColor.Yellow);
-            visual.WriteColored("2. Change Task Status", ConsoleColor.Yellow);
-            visual.WriteColored("3. Logout", ConsoleColor.Yellow);
+            visual.WriteColored("======Developer Menu======", ConsoleColor.White, ConsoleColor.DarkCyan);
 
-            Console.Write("Choose: ");
+            visual.WriteColored("1. Assigned Tasks", ConsoleColor.DarkCyan);
+            visual.WriteColored("2. Change Task Status", ConsoleColor.DarkCyan);
+            visual.WriteColored("3. Logout", ConsoleColor.DarkCyan);
+
+            Console.WriteLine();
+
+            visual.WriteColored("Choose: ", ConsoleColor.White, line: false);
             string input = Console.ReadLine();
 
             if (input == "1")
+            {
                 ShowAssignedTasks(developer.Id);
+            }
             else if (input == "2")
+            {
                 ChangeStatus(developer.Id);
+            }
             else if (input == "3")
+            {
                 break;
+            }
             else
-                Console.WriteLine("Something went wrong.");
+            {
+                Console.Beep(300, 500);
+                visual.WriteColored("Something went wrong, try again [Press any key].", ConsoleColor.Red);
+                visual.ClearOnClick();
+            }
         }
     }
 
     private void ShowAssignedTasks(int devId)
     {
+        Console.Clear();
+
+        visual.WriteColored("======Developer Menu [Show Assigned Tasks]=======", ConsoleColor.White, ConsoleColor.DarkCyan);
+
         var tasks = taskRepo.Load().Where(t => t.AssignedDeveloperID == devId).ToList();
 
         if (!tasks.Any())
         {
-            Console.WriteLine("Something went wrong");
+            Console.Beep(300, 500);
+            visual.WriteColored("Something went wrong!", ConsoleColor.Red);
             return;
         }
 
+        visual.WriteColored("============Assigned Tasks==============", ConsoleColor.White, ConsoleColor.DarkCyan);
+
         foreach (var t in tasks)
         {
-            visual.WriteColored($"[{t.Id}] {t.Title} - {t.Status}");
+            visual.WriteColored($"[{t.Id}] {t.Title} - {t.Status}", ConsoleColor.DarkCyan);
         }
     }
 
     private void ChangeStatus(int devId)
     {
+        Console.Clear();
+
+        visual.WriteColored("======Developer Menu [Change Status]=======", ConsoleColor.White, ConsoleColor.DarkCyan);
+
         var tasks = taskRepo.Load().Where(t => t.AssignedDeveloperID == devId).ToList();
 
         if (!tasks.Any())
         {
-            Console.WriteLine("No tasks to update.");
+            Console.Beep(300, 500);
+            visual.WriteColored("No tasks to update!", ConsoleColor.Red);
             return;
         }
 
-        Console.Write("Enter Task ID: ");
+        visual.WriteColored("Enter Task ID: ", ConsoleColor.White, line: false);
         int id = int.Parse(Console.ReadLine());
 
         var task = tasks.FirstOrDefault(t => t.Id == id);
 
         if (task == null)
         {
-            Console.WriteLine("Task not found.");
+            Console.Beep(300, 500);
+            visual.WriteColored("Task not found!", ConsoleColor.Red);
             return;
         }
 
-        visual.WriteColored("1. ToDo\n2. InProgress\n3. Completed");
+        visual.WriteColored("1. New", ConsoleColor.DarkCyan);
+        visual.WriteColored("2. InProgress", ConsoleColor.DarkCyan);
+        visual.WriteColored("3. LCompleted", ConsoleColor.DarkCyan);
 
-        Console.Write("Choose status: ");
+        visual.WriteColored("Choose status: ", ConsoleColor.White, line: false);
         string choice = Console.ReadLine();
-
-        task.Status = choice switch
-        {
-            "1" => TASK_STATUS.New,
-            "2" => TASK_STATUS.InProgress,
-            "3" => TASK_STATUS.Completed,
-            _ => task.Status
-        };
 
         if (choice == "1")
         {
@@ -97,7 +121,8 @@ internal class DeveloperMenu
         }
         else
         {
-            visual.WriteColored("Something went wrong", ConsoleColor.Red);
+            Console.Beep(300, 500);
+            visual.WriteColored("Something went wrong!", ConsoleColor.Red);
         }
 
         var all = taskRepo.Load();
@@ -105,6 +130,8 @@ internal class DeveloperMenu
         all[index] = task;
         taskRepo.Save(all);
 
-        visual.WriteColored("Status updated");
+        Console.Beep(800, 200);
+        visual.WriteColored("Status updated", ConsoleColor.Green);
+        visual.ClearOnClick();
     }
 }

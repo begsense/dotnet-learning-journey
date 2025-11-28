@@ -2,7 +2,7 @@
 
 internal class Visualisation
 {
-    public void WriteColored(string text, ConsoleColor? foregroundColor = null, ConsoleColor? backgroundColor = null)
+    public void WriteColored(string text, ConsoleColor? foregroundColor = null, ConsoleColor? backgroundColor = null, bool? line = true)
     {
         if (foregroundColor != null)
         {
@@ -12,7 +12,22 @@ internal class Visualisation
         {
             Console.BackgroundColor = backgroundColor.Value;
         }
-        Console.WriteLine(text);
+
+        if (line == true)
+        {
+            Console.WriteLine(text);
+        }
+        else
+        {
+            Console.Write(text);
+        }
+
         Console.ResetColor();
+    }
+
+    public void ClearOnClick()
+    {
+        Console.ReadKey();
+        Console.Clear();
     }
 }

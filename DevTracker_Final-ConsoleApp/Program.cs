@@ -9,36 +9,42 @@ Visualisation visual = new Visualisation();
 AuthService authService = new AuthService();
 DeveloperMenu developerMenu = new DeveloperMenu();
 ManagerMenu managerMenu = new ManagerMenu();
+Validator validator = new Validator();
 
 
 while (true)
 {
-    visual.WriteColored("Welcome To DevTracker ConsoleApp By B.K", ConsoleColor.Cyan);
+    visual.WriteColored("Welcome To DevTracker ConsoleApp By B.K", ConsoleColor.White, ConsoleColor.DarkCyan);
 
-    visual.WriteColored("1. Sign In", ConsoleColor.Yellow);
-    visual.WriteColored("2. Sign Up", ConsoleColor.Yellow);
-    visual.WriteColored("3. Exit", ConsoleColor.Yellow);
+    visual.WriteColored("1. Sign In", ConsoleColor.DarkCyan);
+    visual.WriteColored("2. Sign Up", ConsoleColor.DarkCyan);
+    visual.WriteColored("3. Exit", ConsoleColor.DarkCyan);
 
-    Console.Write("Choose: ");
+    Console.WriteLine();
+
+    visual.WriteColored("Choose: ", ConsoleColor.White, line: false);
     string choice = Console.ReadLine();
 
     if (choice == "1")
     {
-        Console.Write("Email: ");
+        visual.WriteColored("Email: ", ConsoleColor.White, line: false);
         string email = Console.ReadLine();
 
-        Console.Write("Password: ");
+        visual.WriteColored("Password: ", ConsoleColor.White, line: false);
         string pass = Console.ReadLine();
 
         User user = authService.SignIn(email, pass);
 
-        if (user == null)
+        if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(pass) || user == null)
         {
-            visual.WriteColored("Invalid email or password.", ConsoleColor.Red);
+            Console.Beep(300, 500);
+            visual.WriteColored("Something went wrong, try again [Press any key].", ConsoleColor.Red);
+            visual.ClearOnClick();
             continue;
         }
 
-        visual.WriteColored($"Welcome, {user.UserName}!", ConsoleColor.Green);
+        Console.Beep(800, 200);
+        Console.Clear();
 
         if (user.Role == USER_ROLE.Manager)
             managerMenu.Start(user);
@@ -47,31 +53,50 @@ while (true)
     }
     else if (choice == "2")
     {
-        Console.Write("Email: ");
+        visual.WriteColored("Email: ", ConsoleColor.White, line: false);
         string email = Console.ReadLine();
 
-        Console.Write("Username: ");
+        visual.WriteColored("Username: ", ConsoleColor.White, line: false);
         string username = Console.ReadLine();
 
-        Console.Write("Password: ");
+        visual.WriteColored("Password: ", ConsoleColor.White, line: false);
         string pass = Console.ReadLine();
 
-        if (authService.SignUp(email, username, pass))
+        if (validator.ValidateSignUp(email, username, pass, out string error))
         {
-            visual.WriteColored("Registration successful!", ConsoleColor.Green);
+            if (authService.SignUp(email, username, pass))
+            {
+                Console.Beep(800, 200);
+                visual.WriteColored("Registration successful!", ConsoleColor.Green);
+
+                User user = authService.SignIn(email, pass);
+
+                if (user.Role == USER_ROLE.Manager)
+                    managerMenu.Start(user);
+                else
+                    developerMenu.Start(user);
+            }
+            else
+            {
+                visual.WriteColored("Sign Up failed.", ConsoleColor.Red);
+            }
         }
         else
         {
-            visual.WriteColored("Sign Up failed.", ConsoleColor.Red);
+            Console.Beep(300, 500);
+            visual.WriteColored(error, ConsoleColor.Red);
         }
     }
     else if (choice == "3")
     {
+        Console.Beep(800, 200);
         visual.WriteColored("Goodbye!", ConsoleColor.Green);
         break;
     }
     else
     {
-        visual.WriteColored("Invalid option.", ConsoleColor.Red);
+        Console.Beep(300, 500);
+        visual.WriteColored("Something went wrong, try again [Press any key].", ConsoleColor.Red);
+        visual.ClearOnClick();
     }
 }
