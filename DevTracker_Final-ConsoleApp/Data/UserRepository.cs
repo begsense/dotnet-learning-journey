@@ -2,10 +2,11 @@
 using System.Text.Json.Serialization;
 
 using DevTracker_Final_ConsoleApp.Models;
+using DevTracker_Final_ConsoleApp.Interfaces;
 
 namespace DevTracker_Final_ConsoleApp.Data;
 
-internal class UserRepository
+internal class UserRepository : IUserRepository
 {
     private readonly string filePath;
 

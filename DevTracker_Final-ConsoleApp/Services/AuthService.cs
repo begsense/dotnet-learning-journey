@@ -1,10 +1,11 @@
 ﻿using DevTracker_Final_ConsoleApp.Data;
 using DevTracker_Final_ConsoleApp.Models;
 using DevTracker_Final_ConsoleApp.Enums;
+using DevTracker_Final_ConsoleApp.Interfaces;
 
 namespace DevTracker_Final_ConsoleApp.Services;
 
-internal class AuthService
+internal class AuthService : IAuthService
 {
     private readonly UserRepository userRepository = new UserRepository();
     private readonly EmailSender emailSender = new EmailSender();
