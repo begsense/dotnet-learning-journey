@@ -2,6 +2,7 @@
 using DevTracker_Final_ConsoleApp.Models;
 using DevTracker_Final_ConsoleApp.Enums;
 using DevTracker_Final_ConsoleApp.Helpers;
+using DevTracker_Final_ConsoleApp.FileLogging;
 
 namespace DevTracker_Final_ConsoleApp.Menus;
 
@@ -10,11 +11,12 @@ internal class ManagerMenu
     private readonly TaskRepository taskRepo = new TaskRepository();
     private readonly UserRepository userRepo = new UserRepository();
     private readonly Visualisation visual = new Visualisation();
+    private readonly Logger logger = new Logger();
 
     public void Start(User manager)
     {
-        visual.WriteColored($"Welcome {manager.UserName} !", ConsoleColor.DarkGreen);
-        Console.WriteLine();
+        visual.WriteColored($"Welcome {manager.UserName} !", ConsoleColor.Magenta);
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         while (true)
         {
@@ -26,7 +28,7 @@ internal class ManagerMenu
             visual.WriteColored("4. Make User Manager", ConsoleColor.DarkCyan);
             visual.WriteColored("5. Logout", ConsoleColor.DarkCyan);
 
-            Console.WriteLine();
+            visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
             visual.WriteColored("Choose: ", ConsoleColor.White, line: false);
             string input = Console.ReadLine();
@@ -34,22 +36,31 @@ internal class ManagerMenu
             if (input == "1")
             {
                 AddTask();
+                logger.Log($"User Added Task: {manager.UserName} With Email: {manager.Email}, ID: {manager.Id}, Role: {manager.Role}");
             }
             else if (input == "2")
             {
-                AssignTask();
+                bool successfullyAssigned = AssignTask();
+                if (successfullyAssigned)
+                {
+                    logger.Log($"Manager Assign Task: {manager.UserName} With Email: {manager.Email}, ID: {manager.Id}, to User");
+                }
             }
             else if (input == "3")
             {
                 FilterTasks();
+                logger.Log($"Manager Filtered Tasks: {manager.UserName} With Email: {manager.Email}, ID: {manager.Id}, to User");
             }
             else if (input == "4")
             {
                 MakeUserManager();
+                logger.Log($"Manager Promote User: {manager.UserName} With Email: {manager.Email}, ID: {manager.Id}, to User");
             }
             else if (input == "5")
             {
-                visual.WriteColored("Logging out...", ConsoleColor.Green);
+                Console.Clear();
+                Console.Beep(800, 200);
+                visual.WriteColored("Loggout Successfully!", ConsoleColor.Green);
                 break;
             }
             else
@@ -94,7 +105,7 @@ internal class ManagerMenu
         visual.ClearOnClick();
     }
 
-    private void AssignTask()
+    private bool AssignTask()
     {
         Console.Clear();
 
@@ -108,15 +119,19 @@ internal class ManagerMenu
             Console.Beep(300, 500);
             visual.WriteColored("No unassigned tasks! try again [Press any key]", ConsoleColor.Red);
             visual.ClearOnClick();
-            return;
+            return false;
         }
 
-        visual.WriteColored("Unassigned Tasks: ", ConsoleColor.White, ConsoleColor.DarkCyan);
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
+
+        visual.WriteColored("Unassigned Tasks: ", ConsoleColor.White);
 
         foreach (var t in tasks)
         {
             visual.WriteColored($"[{t.Id}] {t.Title}", ConsoleColor.DarkCyan);
         }
+
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("Enter Task ID to assign: ", ConsoleColor.White, line: false);
         int taskId = int.Parse(Console.ReadLine());
@@ -127,10 +142,10 @@ internal class ManagerMenu
             Console.Beep(300, 500);
             visual.WriteColored("Task not found! try again [Press any key]", ConsoleColor.Red);
             visual.ClearOnClick();
-            return;
+            return false;
         }
 
-        visual.WriteColored("============Available Developers==============", ConsoleColor.White, ConsoleColor.DarkCyan);
+        visual.WriteColored("======Available Developers======", ConsoleColor.White, ConsoleColor.DarkCyan);
 
         foreach (var u in users)
         {
@@ -146,13 +161,20 @@ internal class ManagerMenu
             Console.Beep(300, 500);
             visual.WriteColored("Developer not found! try again [Press any key]", ConsoleColor.Red);
             visual.ClearOnClick();
-            return;
+            return false;
         }
 
         task.AssignedDeveloperID = dev.Id;
         taskRepo.Save(taskRepo.Load());
 
-        visual.WriteColored($"Task '{task.Title}' assigned to {dev.UserName}.", ConsoleColor.DarkCyan);
+        Console.Clear();
+        Console.Beep(800, 200);
+        visual.WriteColored($"Task '{task.Title}' assigned to {dev.UserName}.", ConsoleColor.Green);
+
+        visual.WriteColored("[Press any key to back to Manager menu]", ConsoleColor.White);
+        visual.ClearOnClick();
+
+        return true;
     }
 
     private void FilterTasks()
@@ -163,12 +185,16 @@ internal class ManagerMenu
 
         var tasks = taskRepo.Load();
 
-        visual.WriteColored("Filter by status", ConsoleColor.DarkCyan);
+        visual.WriteColored("Filter by status", ConsoleColor.White);
+
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("1. New", ConsoleColor.DarkCyan);
         visual.WriteColored("2. InProgress", ConsoleColor.DarkCyan);
         visual.WriteColored("3. Completed", ConsoleColor.DarkCyan);
         visual.WriteColored("4. All", ConsoleColor.DarkCyan);
+
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("Enter Status: ", ConsoleColor.White, line: false);
         string choice = Console.ReadLine();
@@ -192,12 +218,20 @@ internal class ManagerMenu
             filteredTasks = tasks;
         }
 
-        visual.WriteColored("============Filtered Developers============", ConsoleColor.White, ConsoleColor.DarkCyan);
+        Console.Clear();
+        Console.Beep(800, 200);
+
+        visual.WriteColored("======Filtered Tasks======", ConsoleColor.White, ConsoleColor.DarkCyan);
 
         foreach (var t in filteredTasks)
         {
-            visual.WriteColored($"[{t.Id}] {t.Title} - {t.Status} - Assigned to: {t.AssignedDeveloperID}", ConsoleColor.DarkCyan);
+            visual.WriteColored($"[{t.Id}] {t.Title} - {t.Status} - Assigned to []: {(t.AssignedDeveloperID == 0 ? "Nobody" : t.AssignedDeveloperID.ToString())}", ConsoleColor.DarkCyan);
         }
+
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
+
+        visual.WriteColored("[Press any key to back to Manager menu]", ConsoleColor.White);
+        visual.ClearOnClick();
     }
 
     private void MakeUserManager()
@@ -216,12 +250,16 @@ internal class ManagerMenu
             return;
         }
 
-        visual.WriteColored("============Available Users============", ConsoleColor.White, ConsoleColor.DarkCyan);
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
+
+        visual.WriteColored("Available Users: ", ConsoleColor.White);
 
         foreach (var u in users)
         {
             visual.WriteColored($"[{u.Id}] {u.UserName} - Role: {u.Role}", ConsoleColor.DarkCyan);
         }
+
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("Enter User ID to promote to Manager: ", ConsoleColor.White, line: false);
         int userId = int.Parse(Console.ReadLine());
@@ -241,6 +279,8 @@ internal class ManagerMenu
 
         Console.Beep(800, 200);
         visual.WriteColored($"{user.UserName} is now a Manager.", ConsoleColor.Green);
+
+        visual.WriteColored("Press any key to back to Manager menu ", ConsoleColor.White);
         visual.ClearOnClick();
     }
 }

@@ -4,12 +4,14 @@ using DevTracker_Final_ConsoleApp.Services;
 using DevTracker_Final_ConsoleApp.Menus;
 using DevTracker_Final_ConsoleApp.Models;
 using DevTracker_Final_ConsoleApp.Enums;
+using DevTracker_Final_ConsoleApp.FileLogging;
 
 Visualisation visual = new Visualisation();
 AuthService authService = new AuthService();
 DeveloperMenu developerMenu = new DeveloperMenu();
 ManagerMenu managerMenu = new ManagerMenu();
 Validator validator = new Validator();
+Logger logger = new Logger();
 
 
 while (true)
@@ -43,13 +45,23 @@ while (true)
             continue;
         }
 
-        Console.Beep(800, 200);
         Console.Clear();
+        Console.Beep(800, 200);
+
+        visual.WriteColored("Sign In successfully!", ConsoleColor.Green);
+
+        visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         if (user.Role == USER_ROLE.Manager)
+        {
             managerMenu.Start(user);
+            logger.Log($"{user.UserName} Sign In, Email: {user.Email}, ID: {user.Id}, Role: {user.Role}");
+        }
         else
+        {
             developerMenu.Start(user);
+            logger.Log($"{user.UserName} Sign In, Email: {user.Email}, ID: {user.Id}, Role: {user.Role}");
+        }
     }
     else if (choice == "2")
     {
@@ -66,25 +78,38 @@ while (true)
         {
             if (authService.SignUp(email, username, pass))
             {
+                Console.Clear();
                 Console.Beep(800, 200);
-                visual.WriteColored("Registration successful!", ConsoleColor.Green);
+
+                visual.WriteColored("Registration successfully!", ConsoleColor.Green);
+
+                visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
                 User user = authService.SignIn(email, pass);
 
                 if (user.Role == USER_ROLE.Manager)
+                {
                     managerMenu.Start(user);
+                    logger.Log($"{user.UserName} Sign Up, Email: {user.Email}, ID: {user.Id}, Role: {user.Role}");
+                }
                 else
+                {
                     developerMenu.Start(user);
+                    logger.Log($"{user.UserName} Sign Up, Email: {user.Email}, ID: {user.Id}, Role: {user.Role}");
+                }
             }
             else
             {
-                visual.WriteColored("Sign Up failed.", ConsoleColor.Red);
+                Console.Beep(300, 500);
+                visual.WriteColored("Sign Up failed. try again [Press any key].", ConsoleColor.Red);
+                visual.ClearOnClick();
             }
         }
         else
         {
             Console.Beep(300, 500);
-            visual.WriteColored(error, ConsoleColor.Red);
+            visual.WriteColored($"{error} try again [Press any key].", ConsoleColor.Red);
+            visual.ClearOnClick();
         }
     }
     else if (choice == "3")

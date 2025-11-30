@@ -16,9 +16,9 @@
     "Description": "Manager should be able to filter tasks by status and priority.",
     "AssignedDeveloperID": 3,
     "Priority": "Medium",
-    "Status": "New",
+    "Status": "InProgress",
     "CreatedAt": "2025-11-23T12:45:00",
-    "StartedAt": "0001-01-01T00:00:00",
+    "StartedAt": "2025-11-30T14:27:06.9008154+04:00",
     "CompletedAt": "0001-01-01T00:00:00"
   },
   {
@@ -29,6 +29,17 @@
     "Priority": "Medium",
     "Status": "New",
     "CreatedAt": "2025-11-28T15:40:23.7641041+04:00",
+    "StartedAt": "0001-01-01T00:00:00",
+    "CompletedAt": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": 4,
+    "Title": "RKENA web",
+    "Description": "create webpage for rkena fc",
+    "AssignedDeveloperID": 0,
+    "Priority": "Medium",
+    "Status": "New",
+    "CreatedAt": "2025-11-30T13:32:42.9301364+04:00",
     "StartedAt": "0001-01-01T00:00:00",
     "CompletedAt": "0001-01-01T00:00:00"
   }

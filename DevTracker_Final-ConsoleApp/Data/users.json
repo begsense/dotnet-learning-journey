@@ -12,5 +12,12 @@
     "Email": "begsensenew@gmail.com",
     "Password": "$2a$11$.npWX1FE3jTqtt5jci/SF.A.WTCL.mzX.Eu4MpaJArjKCY0Uy8A/u",
     "Role": "Manager"
+  },
+  {
+    "Id": 3,
+    "UserName": "begsssss",
+    "Email": "begsensestream@gmail.com",
+    "Password": "$2a$11$S5b6yk2IhYl6NkgBFsMNHeCDIiMfJil8E8Y4BOEllnkeMUv3ISPAW",
+    "Role": "Developer"
   }
 ]
