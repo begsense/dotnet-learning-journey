@@ -98,12 +98,6 @@ while (true)
                     logger.Log($"{user.UserName} Sign Up, Email: {user.Email}, ID: {user.Id}, Role: {user.Role}");
                 }
             }
-            else
-            {
-                Console.Beep(300, 500);
-                visual.WriteColored("Sign Up failed. try again [Press any key].", ConsoleColor.Red);
-                visual.ClearOnClick();
-            }
         }
         else
         {

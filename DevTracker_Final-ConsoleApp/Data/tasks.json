@@ -12,7 +12,7 @@
   },
   {
     "Id": 2,
-    "Title": "Create task filtering feature",
+    "Title": "filtering feature",
     "Description": "Manager should be able to filter tasks by status and priority.",
     "AssignedDeveloperID": 3,
     "Priority": "Medium",
@@ -45,28 +45,6 @@
   },
   {
     "Id": 5,
-    "Title": "1",
-    "Description": "2",
-    "AssignedDeveloperID": 0,
-    "Priority": "Medium",
-    "Status": "New",
-    "CreatedAt": "2025-11-30T14:47:42.8592408+04:00",
-    "StartedAt": "0001-01-01T00:00:00",
-    "CompletedAt": "0001-01-01T00:00:00"
-  },
-  {
-    "Id": 6,
-    "Title": "",
-    "Description": "",
-    "AssignedDeveloperID": 0,
-    "Priority": "Medium",
-    "Status": "New",
-    "CreatedAt": "2025-11-30T15:01:53.4691954+04:00",
-    "StartedAt": "0001-01-01T00:00:00",
-    "CompletedAt": "0001-01-01T00:00:00"
-  },
-  {
-    "Id": 7,
     "Title": "swaf",
     "Description": "awfgaw",
     "AssignedDeveloperID": 0,
