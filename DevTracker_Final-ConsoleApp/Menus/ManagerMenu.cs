@@ -3,6 +3,7 @@ using DevTracker_Final_ConsoleApp.Models;
 using DevTracker_Final_ConsoleApp.Enums;
 using DevTracker_Final_ConsoleApp.Helpers;
 using DevTracker_Final_ConsoleApp.FileLogging;
+using System.Reflection.Metadata.Ecma335;
 
 namespace DevTracker_Final_ConsoleApp.Menus;
 
@@ -101,7 +102,7 @@ internal class ManagerMenu
         taskRepo.Save(tasks);
 
         Console.Beep(800, 200);
-        visual.WriteColored($"Task '{title}' added successfully. [Press any key to back to the main menu]", ConsoleColor.Green);
+        visual.WriteColored($"Task: '{title}' added successfully. [Press any key to back to the main menu]", ConsoleColor.Green);
         visual.ClearOnClick();
     }
 
@@ -128,13 +129,19 @@ internal class ManagerMenu
 
         foreach (var t in tasks)
         {
-            visual.WriteColored($"[{t.Id}] {t.Title}", ConsoleColor.DarkCyan);
+            string id = t.Id.ToString().PadRight(5);
+            string title = t.Title.PadRight(30);
+
+            visual.WriteColored(
+                $"ID: {id} | Title: {title}",
+                ConsoleColor.DarkCyan
+            );
         }
 
         visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("Enter Task ID to assign: ", ConsoleColor.White, line: false);
-        int taskId = int.Parse(Console.ReadLine());
+        int.TryParse(Console.ReadLine().Trim(), out int taskId);
 
         var task = tasks.FirstOrDefault(t => t.Id == taskId);
         if (task == null)
@@ -149,11 +156,17 @@ internal class ManagerMenu
 
         foreach (var u in users)
         {
-            visual.WriteColored($"[{u.Id}] {u.UserName}", ConsoleColor.DarkCyan);
+            string id = u.Id.ToString().PadRight(5);
+            string name = u.UserName.PadRight(25);
+
+            visual.WriteColored(
+                $"ID: {id} | UserName: {name}",
+                ConsoleColor.DarkCyan
+            );
         }
 
         visual.WriteColored("Enter Developer ID: ", ConsoleColor.White, line: false);
-        int devId = int.Parse(Console.ReadLine());
+        int.TryParse(Console.ReadLine(), out int devId);
 
         var dev = users.FirstOrDefault(u => u.Id == devId);
         if (dev == null)
@@ -169,7 +182,7 @@ internal class ManagerMenu
 
         Console.Clear();
         Console.Beep(800, 200);
-        visual.WriteColored($"Task '{task.Title}' assigned to {dev.UserName}.", ConsoleColor.Green);
+        visual.WriteColored($"Task: '{task.Title}' assigned to {dev.UserName}.", ConsoleColor.Green);
 
         visual.WriteColored("[Press any key to back to Manager menu]", ConsoleColor.White);
         visual.ClearOnClick();
@@ -225,7 +238,17 @@ internal class ManagerMenu
 
         foreach (var t in filteredTasks)
         {
-            visual.WriteColored($"[{t.Id}] {t.Title} - {t.Status} - Assigned to []: {(t.AssignedDeveloperID == 0 ? "Nobody" : t.AssignedDeveloperID.ToString())}", ConsoleColor.DarkCyan);
+            string id = t.Id.ToString().PadRight(5);
+            string title = t.Title.PadRight(30);
+            string status = t.Status.ToString().PadRight(12);
+            string assigned = (t.AssignedDeveloperID == 0
+                               ? "Nobody"
+                               : t.AssignedDeveloperID.ToString()).PadRight(10);
+
+            visual.WriteColored(
+                $"ID: {id} | Title: {title} | Status: {status} | Assigned: {assigned}",
+                ConsoleColor.DarkCyan
+            );
         }
 
         visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
@@ -256,13 +279,20 @@ internal class ManagerMenu
 
         foreach (var u in users)
         {
-            visual.WriteColored($"[{u.Id}] {u.UserName} - Role: {u.Role}", ConsoleColor.DarkCyan);
+            string id = u.Id.ToString().PadRight(5);
+            string name = u.UserName.PadRight(25);
+            string role = u.Role.ToString().PadRight(12);
+
+            visual.WriteColored(
+                $"ID: {id} | UserName: {name} | Role: {role}",
+                ConsoleColor.DarkCyan
+            );
         }
 
         visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("Enter User ID to promote to Manager: ", ConsoleColor.White, line: false);
-        int userId = int.Parse(Console.ReadLine());
+        int.TryParse(Console.ReadLine(), out int userId);
 
         var user = users.FirstOrDefault(u => u.Id == userId);
 

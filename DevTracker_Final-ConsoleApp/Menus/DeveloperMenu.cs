@@ -83,8 +83,16 @@ internal class DeveloperMenu
 
         foreach (var t in tasks)
         {
-            visual.WriteColored($"[{t.Id}] {t.Title} - {t.Status}", ConsoleColor.DarkCyan);
+            string id = t.Id.ToString().PadRight(5);
+            string title = t.Title.PadRight(30);
+            string status = t.Status.ToString().PadRight(12);
+
+            visual.WriteColored(
+                $"ID: {id} | Title: {title} | Status: {status}",
+                ConsoleColor.DarkCyan
+            );
         }
+
 
         visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
@@ -115,13 +123,20 @@ internal class DeveloperMenu
 
         foreach (var t in tasks)
         {
-            visual.WriteColored($"[{t.Id}] {t.Title}", ConsoleColor.DarkCyan);
+            string taskId = t.Id.ToString().PadRight(5);
+            string title = t.Title.PadRight(30);
+
+            visual.WriteColored(
+                $"ID: {taskId} | Title: {title}",
+                ConsoleColor.DarkCyan
+            );
         }
+
 
         visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 
         visual.WriteColored("Enter Task ID: ", ConsoleColor.White, line: false);
-        int id = int.Parse(Console.ReadLine());
+        int.TryParse(Console.ReadLine(), out int id);
 
         var task = tasks.FirstOrDefault(t => t.Id == id);
 
