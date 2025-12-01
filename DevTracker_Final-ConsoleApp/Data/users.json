@@ -19,5 +19,12 @@
     "Email": "begsensestream@gmail.com",
     "Password": "$2a$11$v/y5ifxPlUDG0.xYBLsfVO2FsOJENWKSIHxDaOcmLsi3SfnAh3Vjq",
     "Role": "Developer"
+  },
+  {
+    "Id": 4,
+    "UserName": "begi",
+    "Email": "kopalianibegi7@gmail.com",
+    "Password": "$2a$11$Y8SD73nFCVxdhF2REzmIDuQsyXOxf0r2NprIdpsMiwCXMaCZAQYBq",
+    "Role": "Developer"
   }
 ]

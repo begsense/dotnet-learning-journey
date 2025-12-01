@@ -263,7 +263,9 @@ internal class ManagerMenu
 
         visual.WriteColored("======Manager Menu [Promote User to Manager]=======", ConsoleColor.White, ConsoleColor.DarkCyan);
 
-        var users = userRepo.Load().Where(u => u.Role != USER_ROLE.Manager).ToList();
+        var allUsers = userRepo.Load();
+
+        var users = allUsers.Where(u => u.Role != USER_ROLE.Manager).ToList();
 
         if (!users.Any())
         {
@@ -305,7 +307,8 @@ internal class ManagerMenu
         }
 
         user.Role = USER_ROLE.Manager;
-        userRepo.Save(userRepo.Load());
+        userRepo.Save(allUsers);
+
 
         Console.Beep(800, 200);
         visual.WriteColored($"{user.UserName} is now a Manager.", ConsoleColor.Green);

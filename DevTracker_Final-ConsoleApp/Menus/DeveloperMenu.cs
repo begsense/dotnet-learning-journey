@@ -14,6 +14,7 @@ internal class DeveloperMenu
 
     public void Start(User developer)
     {
+        Console.Clear();
         visual.WriteColored($"Welcome {developer.UserName}", ConsoleColor.Magenta);
         visual.WriteColored("==============================", ConsoleColor.DarkMagenta);
 

@@ -16,8 +16,8 @@
     "Description": "Manager should be able to filter tasks by status and priority.",
     "AssignedDeveloperID": 3,
     "Priority": "Medium",
-    "Status": "InProgress",
-    "CreatedAt": "2025-11-23T12:45:00",
+    "Status": "New",
+    "CreatedAt": "2025-12-01T21:04:01.6036145+04:00",
     "StartedAt": "2025-11-30T14:27:06.9008154+04:00",
     "CompletedAt": "0001-01-01T00:00:00"
   },
@@ -51,6 +51,17 @@
     "Priority": "Medium",
     "Status": "New",
     "CreatedAt": "2025-11-30T15:07:59.9906143+04:00",
+    "StartedAt": "0001-01-01T00:00:00",
+    "CompletedAt": "0001-01-01T00:00:00"
+  },
+  {
+    "Id": 6,
+    "Title": "rame1",
+    "Description": "test desc",
+    "AssignedDeveloperID": 0,
+    "Priority": "Medium",
+    "Status": "New",
+    "CreatedAt": "2025-12-01T20:36:56.4026885+04:00",
     "StartedAt": "0001-01-01T00:00:00",
     "CompletedAt": "0001-01-01T00:00:00"
   }
