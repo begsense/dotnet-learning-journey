@@ -1,0 +1,6 @@
+@Lecture31_One_To_Many_HostAddress = http://localhost:5003
+
+GET {{Lecture31_One_To_Many_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
