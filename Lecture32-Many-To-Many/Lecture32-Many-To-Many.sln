@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture32-Many-To-Many", "Lecture32-Many-To-Many.csproj", "{C2FD89E5-566D-4B3B-ACE0-AA1F3D13CB8F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2FD89E5-566D-4B3B-ACE0-AA1F3D13CB8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2FD89E5-566D-4B3B-ACE0-AA1F3D13CB8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2FD89E5-566D-4B3B-ACE0-AA1F3D13CB8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2FD89E5-566D-4B3B-ACE0-AA1F3D13CB8F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3579C7C6-C869-4B42-8AA4-E46C4BB5126C}
+	EndGlobalSection
+EndGlobal
