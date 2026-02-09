@@ -1,0 +1,6 @@
+@Lecture33_All_Relationships_Shop_HostAddress = http://localhost:5074
+
+GET {{Lecture33_All_Relationships_Shop_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
