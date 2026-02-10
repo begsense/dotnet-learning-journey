@@ -1,0 +1,6 @@
+@Lecture34_AutoMapper_HostAddress = http://localhost:5173
+
+GET {{Lecture34_AutoMapper_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
