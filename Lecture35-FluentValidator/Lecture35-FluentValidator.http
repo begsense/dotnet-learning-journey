@@ -1,0 +1,6 @@
+@Lecture35_FluentValidator_HostAddress = http://localhost:5076
+
+GET {{Lecture35_FluentValidator_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
