@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.13.35913.81 d17.13
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lecture37-Auth-Roles", "Lecture37-Auth-Roles.csproj", "{4618566A-FAF5-40F6-918B-992C772DCEA1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4618566A-FAF5-40F6-918B-992C772DCEA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4618566A-FAF5-40F6-918B-992C772DCEA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4618566A-FAF5-40F6-918B-992C772DCEA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4618566A-FAF5-40F6-918B-992C772DCEA1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0E191CA-384A-416F-BA46-8C36717CAB44}
+	EndGlobalSection
+EndGlobal

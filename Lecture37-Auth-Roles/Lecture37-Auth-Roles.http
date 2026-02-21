@@ -1,0 +1,6 @@
+@Lecture37_Auth_Roles_HostAddress = http://localhost:5292
+
+GET {{Lecture37_Auth_Roles_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
