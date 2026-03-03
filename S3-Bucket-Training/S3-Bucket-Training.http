@@ -1,0 +1,6 @@
+@S3_Bucket_Training_HostAddress = http://localhost:5276
+
+GET {{S3_Bucket_Training_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
